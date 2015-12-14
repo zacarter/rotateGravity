@@ -26,9 +26,8 @@ class ViewController: UIViewController {
         //myMotionHandler?.startAccelerometerUpdates()
         self.ball.layer.cornerRadius = 25;
         
-        myMotionHandler?.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue()!, withHandler: {(adata: CMAccelerometerData!, error: NSError!) in
-            //println("\(adata.acceleration.x) \(adata.acceleration.y) \(adata.acceleration.z)")
-            self.a = adata.acceleration
+        myMotionHandler!.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue()!, withHandler: { data, error in
+            self.a = data!.acceleration
             if (error != nil)
             {
                 print("\(error)")
